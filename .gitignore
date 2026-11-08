@@ -1,0 +1,4 @@
+Release/
+*.onnx
+*.zip
+__pycache__/
