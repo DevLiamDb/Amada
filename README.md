@@ -12,7 +12,6 @@
 ![Languages](media/badges/languages.svg)
 [![Base model](media/badges/base.svg)](https://huggingface.co/jhu-clsp/mmBERT-base)
 ![Size](media/badges/size.svg)
-![Speed](media/badges/speed.svg)
 ![Claude Code](media/badges/claude.svg)
 [![License](media/badges/license.svg)](LICENSE)
 
@@ -20,7 +19,7 @@
 
 **Big AI models write long answers when your code only needs a decision: yes or no, which option, how much.**
 
-**Amada gives you that decision in about 40 ms, on your own CPU, with a probability you can trust.**
+**Amada gives you that decision on your own CPU, in tens of milliseconds, with a probability you can trust.**
 
 *Built by Liam DB — with the help of AI.*
 
@@ -80,7 +79,7 @@ no internet, no account
 **⚡ Fast**<br>
 ~40 ms for a short<br>
 yes / no question<br>
-on a laptop
+on a laptop CPU*
 
 </td>
 <td align="center" width="16%">
@@ -105,11 +104,13 @@ We ran Amada 3.1 and **Jev 1.14** (TypeSafe's closed decision model) on exactly 
 | Where it runs | TypeSafe's servers | **your own CPU** |
 | Price | $0.042 per million tokens | **free** |
 | Your text leaves your machine | yes | **never** |
-| One short yes / no question | ≈ 245 ms (internet included) | **≈ 40 ms** (×6 faster) |
+| One short yes / no question | ≈ 245 ms (internet included) | **≈ 40 ms** (×6 faster)* |
 | Voice request, 60 intents | **≈ 270 ms** | ≈ 390 ms |
 | Prompt injection (116 messages) | 0.733 | **0.845** |
 | Reading, 11 languages (Belebele) | **0.947** | 0.568 |
 | Public datasets where it wins | **6 of 7** | 1 of 7 |
+
+\* Median time on one laptop (Intel Core i5-11400H, 4 CPU threads, ONNX Runtime). It depends on your processor, on the length of the text and on the number of options: 60 options take ~390 ms. Method: [methodology](https://amada.devliam.com/methodology.pdf).
 
 Amada is **not** better everywhere: Jev is far more accurate on reading and intents, in every language. Amada wins on speed for short questions, on price, on privacy, and on prompt injection. Every number, the good ones and the bad ones, is on the [benchmark page](https://amada.devliam.com/benchmark).
 
