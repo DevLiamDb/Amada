@@ -23,6 +23,10 @@ Messy real-life writing and the weak spots found by the benchmarks. Starts from 
 
 Short fine-tune of 3.0 to tell near-neighbour labels apart, then recalibrated.
 
+- Added (2026-11-08): `amada-3.1-int4.zip`, the same model with 4-bit weights (196 MB instead of 1.25 GB, needs
+  onnxruntime 1.20 or newer). Same tests, same laptop: accuracy 0.897 vs 0.899 in English, 0.983 vs 0.984 in
+  11 languages, choice ECE 0.017 vs 0.016, peak RAM 1.15 GB vs 3.2 GB, a little faster. Activations stay in FP32.
+
 - Added: option lists whose distractors are the gold label's nearest labels (embedding similarity) instead of random ones.
 - Added: CLINC150, real user requests (150 intents + out-of-scope). Banking77 is still never used for training.
 - Changed: 1 epoch (3,440 steps, about 3 h on a T4 GPU), 35k replay of v3 data against forgetting.

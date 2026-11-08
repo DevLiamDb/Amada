@@ -64,6 +64,9 @@ How happy is she? # not at all, a bit, very    -> score with your own levels
 
 Older versions: `python play.py --version 2.0` (after unzipping `amada-2.0.zip` into `Release/`).
 
+Smaller download: `amada-3.1-int4.zip` (188 MB) is the same model with 4-bit weights. Unzip it into `Release/`, then
+`python play.py --version 3.1-int4`. It needs onnxruntime 1.20 or newer.
+
 From Python:
 
 ```python
@@ -85,6 +88,7 @@ Every version is a [release](https://github.com/DevLiamDb/Amada/releases): one z
 | Version | Base model | Max length | Zip | Notes |
 |---|---|---|---|---|
 | **3.1** (current) | mmBERT-base | 8,192 | 1.16 GB | near-neighbour labels, best calibration |
+| 3.1 INT4 | mmBERT-base | 8,192 | 188 MB | same model, 4-bit weights: same accuracy, 3x less RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrated, same accuracy |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | long texts, many options, trap texts |
 | 2.0 | mmBERT-base | 512 | 1.16 GB | multilingual, "the text does not say" |
