@@ -7,6 +7,12 @@ Every version can be downloaded from the [releases](https://github.com/DevLiamDb
 
 ---
 
+## License change - 2026-11-09
+
+- Changed: Amada is now MIT licensed (was CC BY-NC-ND 4.0). This covers every version, 1.0 to the latest, including
+  copies downloaded before the change: commercial use, modified and fine-tuned versions are allowed. Keep the
+  copyright line and the license text with the files.
+
 ## [4.0] - in preparation
 
 Messy real-life writing and the weak spots found by the benchmarks. Starts from the 3.1 weights.

@@ -1,6 +1,7 @@
 # Notices
 
-Amada is built on other people's work. When you share the Amada files, keep this notice with them.
+Amada itself is MIT licensed (see LICENSE). It is built on other people's work. When you share the Amada files,
+keep this notice with them.
 
 ## mmBERT-base (Amada 2.0 and later)
 

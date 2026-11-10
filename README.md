@@ -274,7 +274,7 @@ Amada/
 │       ├── amada_model.onnx
 │       └── tokenizer/  ← keep it next to the ONNX
 ├── CHANGELOG.md       ← what changed in each version
-├── LICENSE            ← CC BY-NC-ND 4.0
+├── LICENSE            ← MIT
 ├── NOTICE.md          ← notices of the base models (keep them when sharing)
 └── media/             ← logo, badges and GIFs
 ```
@@ -307,10 +307,10 @@ text + questions ──► tokenizer ──► encoder (mmBERT-base, ONNX, CPU) 
 <br>
 
 **Can I use Amada in a company or a paid product?**
-Not without permission: the weights are CC BY-NC-ND 4.0 (non-commercial). Write to liamdb.work@gmail.com: permission can be discussed.
+Yes. Amada is MIT licensed: commercial use is allowed. Keep the copyright line and the license text with the files.
 
 **Can I fine-tune it?**
-Yes, for yourself. You may not share the modified model (the license has a "NoDerivatives" clause).
+Yes, and you may share or sell your fine-tuned version too. Keep the MIT notice (and NOTICE.md) with it.
 
 **Which version should I use?**
 3.1, or 3.1 INT4 for a smaller download. The older versions are there to compare.
@@ -373,15 +373,16 @@ Amada was **built with AI, and we say it plainly.**
 
 ## License
 
-**Amada weights: CC BY-NC-ND 4.0**
+**Amada: MIT** (weights, `play.py` and every file of this repository)
 
-✅ Free to use: personal, educational, research, tests
-✅ Share unchanged copies, with credit ("Amada by LiamDB" and a link to the license)
-✅ Fine-tune it for yourself
-❌ No commercial use without written permission
-❌ No sharing of modified or fine-tuned versions
+✅ Use it for anything, commercial use included
+✅ Modify it, fine-tune it, merge it
+✅ Share or sell the original or your modified versions
+📌 Keep the copyright line ("Copyright (c) 2026 LiamDB") and the license text with the files
 
-`play.py` and the files of this repository follow the same license. The notices of mmBERT-base (MIT) and ModernBERT-large (Apache-2.0) are in [NOTICE.md](NOTICE.md) and must be kept when you share the files. See [LICENSE](LICENSE) for the full terms.
+The MIT license applies to every Amada version, 1.0 to the latest, including copies downloaded when the weights were
+under CC BY-NC-ND 4.0. Amada comes with no warranty. The notices of mmBERT-base (MIT) and ModernBERT-large (Apache-2.0)
+are in [NOTICE.md](NOTICE.md) and must be kept when you share the files. See [LICENSE](LICENSE) for the full terms.
 
 ---
 
