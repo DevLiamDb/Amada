@@ -97,9 +97,9 @@ up to 8,192 tokens
 
 ## Why Amada
 
-We ran Amada 3.1 and **Jev 1.14** (TypeSafe's closed decision model) on exactly the same texts, the same questions and the same options, on 8 November 2026.
+We ran **Jev 1.14** (TypeSafe's closed decision model) on 8 November 2026, and Amada on exactly the same texts, the same questions and the same options.
 
-| | Jev 1.14 (paid API) | Amada 3.1 |
+| | Jev 1.14 (paid API) | Amada 4.0 |
 |---|:---:|:---:|
 | Where it runs | TypeSafe's servers | **your own CPU** |
 | Price | $0.042 per million tokens | **free** |
@@ -107,12 +107,12 @@ We ran Amada 3.1 and **Jev 1.14** (TypeSafe's closed decision model) on exactly 
 | One short yes / no question | ≈ 245 ms (internet included) | **≈ 40 ms** (×6 faster)* |
 | Voice request, 60 intents | **≈ 270 ms** | ≈ 390 ms |
 | Prompt injection (116 messages) | 0.733 | **0.845** |
-| Reading, 11 languages (Belebele) | **0.947** | 0.568 |
+| Reading, 11 languages (Belebele) | **0.947** | 0.554 |
 | Public datasets where it wins | **6 of 7** | 1 of 7 |
 
-\* Median time on one laptop (Intel Core i5-11400H, 4 CPU threads, ONNX Runtime). It depends on your processor, on the length of the text and on the number of options: 60 options take ~390 ms. Method: [methodology](https://amada.devliam.com/methodology.pdf).
+\* Median time on one laptop (Intel Core i5-11400H, 4 CPU threads, ONNX Runtime), measured with 3.1; 4.0 has the same size and was measured within 5 % of it. It depends on your processor, on the length of the text and on the number of options: 60 options take ~390 ms. Method: [methodology](https://amada.devliam.com/methodology.pdf).
 
-Amada is **not** better everywhere: Jev is far more accurate on reading and intents, in every language. Amada wins on speed for short questions, on price, on privacy, and on prompt injection. Every number, the good ones and the bad ones, is on the [benchmark page](https://amada.devliam.com/benchmark).
+Amada is **not** better everywhere: Jev is far more accurate on reading, in every language, and on 6 of 7 public datasets. Amada wins on speed for short questions, on price, on privacy, and on prompt injection. Every number, the good ones and the bad ones, is on the [benchmark page](https://amada.devliam.com/benchmark).
 
 ---
 
@@ -141,8 +141,8 @@ pip install -r requirements.txt
 
 Then get the model:
 
-1. Download `amada-3.1.zip` (or the smaller `amada-3.1-int4.zip`) from the [latest release](https://github.com/DevLiamDb/Amada/releases/latest).
-2. Unzip it into a `Release/` folder next to `play.py`, so you get `Release/amada-3.1/amada_model.onnx` and `Release/amada-3.1/tokenizer/`.
+1. Download `amada-4.0.zip` from the [latest release](https://github.com/DevLiamDb/Amada/releases/latest) (or the smaller `amada-3.1-int4.zip` from the [3.1 release](https://github.com/DevLiamDb/Amada/releases/tag/v3.1)).
+2. Unzip it into a `Release/` folder next to `play.py`, so you get `Release/amada-4.0/amada_model.onnx` and `Release/amada-4.0/tokenizer/`.
 
 > ⚠️ **Keep the `tokenizer/` folder next to `amada_model.onnx`.** Without it, the answers come out wrong.
 
@@ -166,14 +166,14 @@ How happy is she? # not at all, a bit, very    -> score with your own levels
 :new = new text    :q = quit
 ```
 
-Other versions: `python play.py --version 3.1-int4` (needs onnxruntime 1.20+), `python play.py --version 2.0`...
+Other versions: `python play.py --version 3.1`, `python play.py --version 3.1-int4` (needs onnxruntime 1.20+), `python play.py --version 2.0`...
 
 ### 2. From Python
 
 ```python
 from play import Amada, release_model
 
-amada = Amada(release_model("3.1"))
+amada = Amada(release_model("4.0"))
 answers, cut = amada.ask(
     "BOOM. Three knocks on my door. Then nothing.",
     [{"type": "noul", "text": "Is it my mother knocking?"},
@@ -200,7 +200,8 @@ Every version is a [release](https://github.com/DevLiamDb/Amada/releases): one z
 
 | Version | Base model | Max length | Zip | Notes |
 |---|---|:---:|:---:|---|
-| **3.1** (current) | mmBERT-base | 8,192 | 1.16 GB | near-neighbour labels, best calibration |
+| **4.0** (current) | mmBERT-base | 8,192 | 1.16 GB | messy writing, "the text does not say", TREC |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | near-neighbour labels, a little better on Banking77 and emotion |
 | **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: same accuracy, 3× less RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrated, same accuracy |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | long texts, many options, trap texts |
@@ -221,32 +222,38 @@ What changed in each one: [CHANGELOG.md](CHANGELOG.md).
 
 **Our own short tests** (English: 2,000 texts · 11 languages: 1,320 texts):
 
-| Amada 3.1 | Yes / no | Choice | Score | English, all types | 11 languages |
+| Accuracy | Yes / no | Choice | Score | English, all types | 11 languages |
 |---|:---:|:---:|:---:|:---:|:---:|
-| Accuracy | 0.961 | 0.915 | 0.760 | 0.899 | 0.984 |
-| Calibration error (ECE, lower is better) | 0.004 | 0.016 | 0.032 | | |
+| **Amada 4.0** | 0.961 | 0.908 | 0.759 | 0.896 | 0.985 |
+| Amada 3.1 | 0.961 | 0.915 | 0.760 | 0.899 | 0.984 |
+
+Calibration error of 4.0 (ECE, lower is better), on the half of the English tests kept out of calibration: yes / no 0.009, choice 0.016, score 0.048.
+
+**"The text does not say"** (yes / no / not stated, 939 held-out questions): 4.0 gets **0.963** (3.1: 0.917), and **0.954** on the same texts with typos (3.1: 0.889). These texts also helped fit the calibration, so this is a check, not an independent test.
 
 **Public datasets, zero-shot** (Amada never saw them in training: it only gets the question and the option names). Jev 1.14 run by us on the same texts:
 
-| Dataset | Task | Amada 3.1 | Jev 1.14 |
-|---|---|:---:|:---:|
-| SST-2 | movie review sentiment | 0.899 | **0.959** |
-| AG News | news topic, 4 labels | 0.800 | **0.882** |
-| Banking77 | bank support intent, 77 labels | 0.611 | **0.788** |
-| emotion | emotion of a tweet, 6 labels | 0.471 | **0.595** |
-| tweet_topic | topic of a tweet | 0.740 | **0.820** |
-| Prompt injection | is this text an attack on an AI? | **0.845** | 0.733 |
-| When2Call | should an AI agent call a tool? | 0.324 | **0.733** |
+| Dataset | Task | Amada 4.0 | Amada 3.1 | Jev 1.14 |
+|---|---|:---:|:---:|:---:|
+| SST-2 | movie review sentiment | 0.897 | 0.899 | **0.959** |
+| AG News | news topic, 4 labels | 0.803 | 0.800 | **0.882** |
+| Banking77 | bank support intent, 77 labels | 0.586 | 0.611 | **0.788** |
+| emotion | emotion of a tweet, 6 labels | 0.447 | 0.471 | **0.595** |
+| tweet_topic | topic of a tweet | 0.718 | 0.740 | **0.820** |
+| Prompt injection | is this text an attack on an AI? | **0.845** | **0.845** | 0.733 |
+| When2Call | should an AI agent call a tool? | 0.344 | 0.324 | **0.733** |
 
 **Public tests in 11 languages** (average, the same items in every language):
 
-| Test | Amada 3.1 | Jev 1.14 |
-|---|:---:|:---:|
-| Yes / no (machine-translated) | 0.839 | **0.882** |
-| Reading (Belebele, 4 answers) | 0.568 | **0.947** |
-| Intents (MASSIVE, 60 options) | 0.428 | **0.824** |
+| Test | Amada 4.0 | Amada 3.1 | Jev 1.14 |
+|---|:---:|:---:|:---:|
+| Yes / no (machine-translated) | 0.841 | 0.839 | **0.882** |
+| Reading (Belebele, 4 answers) | 0.554 | 0.568 | **0.947** |
+| Intents (MASSIVE, 60 options) | 0.834 * | 0.428 | 0.824 |
 
-**Speed** (median time for one answer, one request at a time · Amada on an Intel Core i5-11400H, 4 CPU threads · Jev through its API from France):
+\* Not zero-shot: Amada 4.0 learned from MASSIVE's training split (the test items stay unseen).
+
+**Speed**, measured with 3.1 (4.0 has the same size) (median time for one answer, one request at a time · Amada on an Intel Core i5-11400H, 4 CPU threads · Jev through its API from France):
 
 | Request | Amada 3.1 | Amada 3.1 INT4 | Jev 1.14 |
 |---|:---:|:---:|:---:|
@@ -255,7 +262,7 @@ What changed in each one: [CHANGELOG.md](CHANGELOG.md).
 | Reading passage, 4 answers | 160 ms | **150 ms** | 264 ms |
 | Voice request, 60 intents | 390 ms | 363 ms | **270 ms** |
 
-**Weak spots**, named on purpose: TREC (kind of answer a question expects, 0.39), Banking77 (0.61), ordinal scores (76 %), very long texts, and messy writing (typos and SMS spelling cost 1.2 points in English, 2.2 in other languages).
+**Weak spots**, named on purpose: TREC (kind of answer a question expects, 0.52 in 4.0, up from 0.39), Banking77 (0.59, 2.5 points below 3.1), ordinal scores (about 76 %) and very long texts. Messy writing now costs little: held-out yes / no with typos 0.960 in English and 0.967 in 11 languages.
 
 > **Honest note:** our short tests use answers from a strong AI (GPT-6 Luna), not from human annotators, and their texts look like the training data. The public datasets use human labels.
 
@@ -270,7 +277,7 @@ Amada/
 ├── play.py            ← terminal chat + Python API ← START HERE
 ├── requirements.txt   ← numpy, onnxruntime, transformers
 ├── Release/           ← unzip the downloaded versions here (not in the repository)
-│   └── amada-3.1/
+│   └── amada-4.0/
 │       ├── amada_model.onnx
 │       └── tokenizer/  ← keep it next to the ONNX
 ├── CHANGELOG.md       ← what changed in each version
@@ -313,7 +320,7 @@ Yes. Amada is MIT licensed: commercial use is allowed. Keep the copyright line a
 Yes, and you may share or sell your fine-tuned version too. Keep the MIT notice (and NOTICE.md) with it.
 
 **Which version should I use?**
-3.1, or 3.1 INT4 for a smaller download. The older versions are there to compare.
+4.0 for most uses. 3.1 INT4 if you need a small download, or 3.1 if your task looks like Banking77 or emotion. The older versions are there to compare.
 
 **How many options can a choice question have?**
 Two or more, no fixed maximum: the text, the question and the options must fit together in 8,192 tokens. 3.0 and later were trained with lists of up to 386 options.

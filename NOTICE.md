@@ -5,7 +5,7 @@ keep this notice with them.
 
 ## mmBERT-base (Amada 2.0 and later)
 
-Amada 2.0, 3.0, 3.0.1 and 3.1 are fine-tuned versions of **mmBERT-base**, a multilingual encoder by the Center for
+Amada 2.0, 3.0, 3.0.1, 3.1 and 4.0 are fine-tuned versions of **mmBERT-base**, a multilingual encoder by the Center for
 Language and Speech Processing of Johns Hopkins University: https://huggingface.co/jhu-clsp/mmBERT-base
 Copyright: the mmBERT-base authors (jhu-clsp). Released under the MIT License:
 
@@ -33,5 +33,6 @@ Amada 1.0 was modified from it (fine-tuned for decisions, exported to ONNX).
 
 Amada learned from public texts (Wikipedia, FineWeb-2, Project Gutenberg books, government reports, arXiv and PubMed
 abstracts), public labelled datasets (QuALITY, ContractNLI, Qasper, CLINC150) and synthetic examples written by large
-language models. Each dataset keeps its own license and terms, available on its original page. Amada does not contain
+language models. Since 4.0 also MASSIVE 1.1 (Amazon, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/) and
+88milSMS (Université Paul-Valéry Montpellier, CC BY 4.0, real French text messages). Each dataset keeps its own license and terms, available on its original page. Amada does not contain
 these texts as such: it learned patterns from them.
