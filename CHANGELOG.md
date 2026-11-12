@@ -37,9 +37,11 @@ fine-tunes (1 epoch each, T4 GPU), then recalibrated. Shown as "Amada 4" on the 
   - Short tests, held-out half, English: yes / no 0.964 -> 0.966, choice 0.924 -> 0.913, score 0.752 -> 0.744
     (within one level: 0.955 -> 0.956). ECE yes / no 0.009, choice 0.016.
   - system-one-benchmark: TREC 0.390 -> 0.523, SST-2 0.900 -> 0.913, MASSIVE English 0.707 -> 0.780.
-  - 14 languages: MASSIVE intents 0.428 -> 0.834 (no longer zero-shot), yes / no 0.839 -> 0.841, Belebele 0.568 -> 0.554.
+  - 11 languages (the non-English training languages): MASSIVE intents 0.428 -> 0.834 (no longer zero-shot), yes / no 0.839 -> 0.841, Belebele 0.568 -> 0.554.
   - Public datasets, zero-shot: SST-2 0.897, AG News 0.803, Banking77 0.586, emotion 0.447, tweet_topic 0.718,
     prompt injection 0.845, When2Call 0.344.
+  - Speed (12 November 2026, laptop CPU, median): 41 ms for one line of text, 54 ms for a short yes / no note,
+    161 ms for a reading passage, 390 ms for 60 intents. The same as 3.1.
 - Known issues: Banking77 (0.611 -> 0.586), emotion (0.471 -> 0.447) and tweet_topic (0.740 -> 0.718) are lower than
   in 3.1. Exact score level -0.8 point in English. Very long texts not improved. No INT4 file yet.
 - Note: the fresh 3.1 run gives 0.650 on system-one-benchmark Banking77 instead of the 0.603 published on 8 November

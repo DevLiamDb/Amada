@@ -110,7 +110,7 @@ We ran **Jev 1.14** (TypeSafe's closed decision model) on 8 November 2026, and A
 | Reading, 11 languages (Belebele) | **0.947** | 0.554 |
 | Public datasets where it wins | **6 of 7** | 1 of 7 |
 
-\* Median time on one laptop (Intel Core i5-11400H, 4 CPU threads, ONNX Runtime), measured with 3.1; 4.0 has the same size and was measured within 5 % of it. It depends on your processor, on the length of the text and on the number of options: 60 options take ~390 ms. Method: [methodology](https://amada.devliam.com/methodology.pdf).
+\* Median time on one laptop (Intel Core i5-11400H, 4 CPU threads, ONNX Runtime), measured with 4.0 on 12 November 2026: 41 ms for one line of screen text, 54 ms for a short note. It depends on your processor, on the length of the text and on the number of options: 60 options take ~390 ms. Method: [methodology](https://amada.devliam.com/methodology.pdf).
 
 Amada is **not** better everywhere: Jev is far more accurate on reading, in every language, and on 6 of 7 public datasets. Amada wins on speed for short questions, on price, on privacy, and on prompt injection. Every number, the good ones and the bad ones, is on the [benchmark page](https://amada.devliam.com/benchmark).
 
@@ -236,7 +236,7 @@ Calibration error of 4.0 (ECE, lower is better), on the half of the English test
 | Dataset | Task | Amada 4.0 | Amada 3.1 | Jev 1.14 |
 |---|---|:---:|:---:|:---:|
 | SST-2 | movie review sentiment | 0.897 | 0.899 | **0.959** |
-| AG News | news topic, 4 labels | 0.803 | 0.800 | **0.882** |
+| AG News | news topic, 4 labels | 0.803 | 0.800 | **0.883** |
 | Banking77 | bank support intent, 77 labels | 0.586 | 0.611 | **0.788** |
 | emotion | emotion of a tweet, 6 labels | 0.447 | 0.471 | **0.595** |
 | tweet_topic | topic of a tweet | 0.718 | 0.740 | **0.820** |
@@ -253,14 +253,16 @@ Calibration error of 4.0 (ECE, lower is better), on the half of the English test
 
 \* Not zero-shot: Amada 4.0 learned from MASSIVE's training split (the test items stay unseen).
 
-**Speed**, measured with 3.1 (4.0 has the same size) (median time for one answer, one request at a time · Amada on an Intel Core i5-11400H, 4 CPU threads · Jev through its API from France):
+**Speed** (median time for one answer, one request at a time, the same requests for all · Amada on an Intel Core i5-11400H, 4 CPU threads · Jev through its API from France). 4.0 was measured on 12 November 2026; 3.1 INT4 and Jev on 8 November:
 
-| Request | Amada 3.1 | Amada 3.1 INT4 | Jev 1.14 |
+| Request | Amada 4.0 | Amada 3.1 INT4 | Jev 1.14 |
 |---|:---:|:---:|:---:|
-| One line of screen text, yes / no | 39 ms | **33 ms** | 244 ms |
+| One line of screen text, yes / no | 41 ms | **33 ms** | 244 ms |
 | Short note, yes / no | 54 ms | **44 ms** | 247 ms |
-| Reading passage, 4 answers | 160 ms | **150 ms** | 264 ms |
+| Reading passage, 4 answers | 161 ms | **150 ms** | 264 ms |
 | Voice request, 60 intents | 390 ms | 363 ms | **270 ms** |
+
+There is no INT4 file of 4.0 yet: the INT4 column is the smaller 3.1.
 
 **Weak spots**, named on purpose: TREC (kind of answer a question expects, 0.52 in 4.0, up from 0.39), Banking77 (0.59, 2.5 points below 3.1), ordinal scores (about 76 %) and very long texts. Messy writing now costs little: held-out yes / no with typos 0.960 in English and 0.967 in 11 languages.
 
