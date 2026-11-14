@@ -23,7 +23,7 @@
 
 *Built by Liam DB — with the help of AI.*
 
-[🌐 Website](https://amada.devliam.com) · [⬇️ Download](https://github.com/DevLiamDb/Amada/releases/latest) · [📊 Benchmark](https://amada.devliam.com/benchmark) · [📜 Changelog](CHANGELOG.md)
+[🌐 Website](https://amada.devliam.com) · [⬇️ Download](https://github.com/DevLiamDb/Amada/releases/latest) · [🏠 PinkHouse app](#pinkhouse-amada-as-a-windows-app) · [📊 Benchmark](https://amada.devliam.com/benchmark) · [📜 Changelog](CHANGELOG.md)
 
 </div>
 
@@ -129,6 +129,22 @@ Amada is **not** better everywhere: Jev is far more accurate on reading, in ever
 
 ---
 
+## PinkHouse: Amada as a Windows app
+
+PinkHouse runs Amada on your PC without Python: a window to ask your questions, a local API for your scripts (`http://127.0.0.1:8787`, with API keys), and a model manager that downloads the Amada versions from these releases and checks each one with SHA-256.
+
+To install it, open **PowerShell** and paste:
+
+```powershell
+irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
+```
+
+The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.0 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.0).
+
+> Windows 10 or 11, 64-bit (tested on Windows 11). The installer holds no model: the first time, choose one in **MODELS** (Amada 4.0 INT4 is the light one, 188 MB). PinkHouse does not run on macOS or Linux yet.
+
+---
+
 ## Installation
 
 > Requirements: **Python 3** and **pip**.
@@ -196,7 +212,7 @@ It only knows the text you give it. No internet, no memory, no text generation.
 
 ## Downloads
 
-Every version is a [release](https://github.com/DevLiamDb/Amada/releases): one zip with the ONNX model and its tokenizer.
+Every version is a release (tags `v1.0` to `v4.0`): one zip with the ONNX model and its tokenizer. The PinkHouse app has its own releases (tags `pinkhouse-v…`).
 
 | Version | Base model | Max length | Zip | Notes |
 |---|---|:---:|:---:|---|
