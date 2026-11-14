@@ -1,3 +1,7 @@
+<!-- languages -->
+<p align="center"><b>English</b> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh.md">中文</a></p>
+<!-- /languages -->
+
 <div align="center">
 
 <img src="media/logo.png" width="96" alt="Amada logo: a pink house above the clouds">
@@ -23,7 +27,7 @@
 
 *Built by Liam DB — with the help of AI.*
 
-[🌐 Website](https://amada.devliam.com) · [⬇️ Download](https://github.com/DevLiamDb/Amada/releases/latest) · [🏠 PinkHouse app](#pinkhouse-amada-as-a-windows-app) · [📊 Benchmark](https://amada.devliam.com/benchmark) · [📜 Changelog](CHANGELOG.md)
+[🌐 Website](https://amada.devliam.com) · [⬇️ Download](https://github.com/DevLiamDb/Amada/releases/latest) · [🏠 PinkHouse app](#pinkhouse) · [📊 Benchmark](https://amada.devliam.com/benchmark) · [📜 Changelog](CHANGELOG.md)
 
 </div>
 
@@ -123,11 +127,13 @@ Amada is **not** better everywhere: Jev is far more accurate on reading, in ever
 - **Screening before an expensive step:** ask one cheap yes / no question first, call the big model only when needed.
 - **Privacy-sensitive text:** notes and messages that must not leave the machine.
 - **Bots and games:** a Discord bot, a game character or a home automation that reacts to what people type.
-- **Small machines:** the INT4 version needs about 1.2 GB of RAM.
+- **Small machines:** the INT4 version needs about 1.2 GB of RAM while it loads, then about 340 MB.
 
 > ⚠️ Never use Amada for medical, legal, financial, safety or other important decisions about real people. It is an experimental model made by one person.
 
 ---
+
+<a name="pinkhouse"></a>
 
 ## PinkHouse: Amada as a Windows app
 
@@ -139,7 +145,7 @@ To install it, open **PowerShell** and paste:
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.1 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.1).
+The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.2 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.2).
 
 > Windows 10 or 11, 64-bit (tested on Windows 11). The installer holds no model: the first time, choose one in **MODELS** (Amada 4.0 INT4 is the light one, 188 MB). PinkHouse does not run on macOS or Linux yet.
 
@@ -299,6 +305,7 @@ In the same run as INT4, 4.0 took 40, 55, 154 and 388 ms: INT4 is about as fast 
 ```
 Amada/
 ├── play.py            ← terminal chat + Python API ← START HERE
+├── install.ps1        ← installs PinkHouse, the Windows app
 ├── requirements.txt   ← numpy, onnxruntime, transformers
 ├── Release/           ← unzip the downloaded versions here (not in the repository)
 │   └── amada-4.0/
@@ -307,7 +314,7 @@ Amada/
 ├── CHANGELOG.md       ← what changed in each version
 ├── LICENSE            ← MIT
 ├── NOTICE.md          ← notices of the base models (keep them when sharing)
-└── media/             ← logo, badges and GIFs
+└── media/             ← logo, badges and GIFs (images: not MIT, see License)
 ```
 
 </details>
@@ -404,7 +411,7 @@ Amada was **built with AI, and we say it plainly.**
 
 ## License
 
-**Amada: MIT** (weights, `play.py` and every file of this repository)
+**Amada: MIT** (weights, `play.py`, `install.ps1` and the code of this repository)
 
 ✅ Use it for anything, commercial use included
 ✅ Modify it, fine-tune it, merge it
@@ -414,6 +421,8 @@ Amada was **built with AI, and we say it plainly.**
 The MIT license applies to every Amada version, 1.0 to the latest, including copies downloaded when the weights were
 under CC BY-NC-ND 4.0. Amada comes with no warranty. The notices of mmBERT-base (MIT) and ModernBERT-large (Apache-2.0)
 are in [NOTICE.md](NOTICE.md) and must be kept when you share the files. See [LICENSE](LICENSE) for the full terms.
+
+**Images: not MIT.** The logo and the GIFs in `media/` show the website and stay © 2026 LiamDB, all rights reserved. You may share them with the credit "Amada by LiamDB", as the [website's terms](https://amada.devliam.com/terms) allow.
 
 **PinkHouse: its own license.** The PinkHouse app (the `pinkhouse-v…` releases) is not covered by the MIT license: it is free for any use, but closed source, and you may not sell, modify or reverse engineer it. See the [PinkHouse License](https://amada.devliam.com/pinkhouse/license).
 
