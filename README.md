@@ -145,7 +145,7 @@ To install it, open **PowerShell** and paste:
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.3 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3).
+The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.4 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.4) and check it before you open it: in PowerShell, `Get-FileHash .\PinkHouse_Setup_1.0.4_x64.exe` must show the SHA-256 of the release notes (also on the [download page](https://amada.devliam.com/download)).
 
 > Windows 10 or 11, 64-bit (tested on Windows 11). The installer holds no model: the first time, a setup wizard asks for your language, then downloads the Amada you pick (Amada 4.0 INT4 is the light one, 188 MB). PinkHouse does not run on macOS or Linux yet.
 
@@ -165,7 +165,7 @@ pip install -r requirements.txt
 
 Then get the model:
 
-1. Download `amada-4.0.zip` from the [latest release](https://github.com/DevLiamDb/Amada/releases/latest) (or the smaller `amada-4.0-int4.zip`, 188 MB, from the same release).
+1. Download `amada-4.0.zip` from the [latest release](https://github.com/DevLiamDb/Amada/releases/latest) (or the smaller `amada-4.0-int4.zip`, 188 MB, from the same release). To check the file: `Get-FileHash amada-4.0.zip` (PowerShell) or `sha256sum amada-4.0.zip` must give `cfa9786b169505ad643911e79ad26af65177ad5f9b7bcc6734433a03ef25e250` (INT4: `72c3f9e3ed8cc9cbeda09cd004360eb7e8bb44b6d326a9d4cf027486207345b5`). GitHub also shows the SHA-256 next to each file of a release.
 2. Unzip it into a `Release/` folder next to `play.py`, so you get `Release/amada-4.0/amada_model.onnx` and `Release/amada-4.0/tokenizer/`.
 
 > ⚠️ **Keep the `tokenizer/` folder next to `amada_model.onnx`.** Without it, the answers come out wrong.
@@ -225,7 +225,7 @@ Every version is a release (tags `v1.0` to `v4.0`): one zip with the ONNX model 
 | Version | Base model | Max length | Zip | Notes |
 |---|---|:---:|:---:|---|
 | **4.0** (current) | mmBERT-base | 8,192 | 1.16 GB | messy writing, "the text does not say", TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: 4× less RAM, about 1 point lower on AG News and Banking77 |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: 4× less RAM, about 1 point lower on most tests, 3.4 points lower on prompt injection |
 | 3.1 | mmBERT-base | 8,192 | 1.16 GB | near-neighbour labels, a little better on Banking77 and emotion |
 | **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: same accuracy, 3× less RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrated, same accuracy |

@@ -137,25 +137,25 @@ Amada ist **nicht** überall besser: Jev ist beim Leseverständnis in jeder Spra
 
 ## PinkHouse: Amada als Windows-App
 
-PinkHouse führt Amada ohne Python auf Ihrem PC aus: ein Fenster für Ihre Fragen, eine lokale API für Ihre Skripte (`http://127.0.0.1:8787`, mit API-Schlüsseln) und eine Modellverwaltung, die die Amada-Versionen aus diesen Releases herunterlädt und jede mit SHA-256 überprüft.
+PinkHouse führt Amada auf Ihrem PC ohne Python aus: ein Fenster, in dem Sie Ihre Fragen stellen können, eine lokale API für Ihre Skripte (`http://127.0.0.1:8787`, mit API-Schlüsseln) und eine Modellverwaltung, die die Amada-Versionen aus diesen Releases herunterlädt und jede mit SHA-256 überprüft.
 
-Um die App zu installieren, öffnen Sie **PowerShell** und fügen Sie Folgendes ein:
+Öffnen Sie zur Installation **PowerShell** und fügen Sie Folgendes ein:
 
 ```powershell
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-Das [Skript](install.ps1) lädt die neueste `PinkHouse_Setup_<version>_x64.exe` aus den [PinkHouse-Releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true) herunter, überprüft deren SHA-256 und öffnet den Installer. Administratorrechte sind nicht erforderlich. Sie können den Installer auch selbst aus dem [PinkHouse-1.0.3-Release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3) herunterladen.
+Das [Skript](install.ps1) lädt die neueste `PinkHouse_Setup_<version>_x64.exe` aus den [PinkHouse-Releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true) herunter, überprüft deren SHA-256 und öffnet das Installationsprogramm. Administratorrechte sind nicht erforderlich. Sie können das Installationsprogramm auch selbst aus dem [PinkHouse-1.0.4-Release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.4) herunterladen und überprüfen, bevor Sie es öffnen: In PowerShell muss `Get-FileHash .\PinkHouse_Setup_1.0.4_x64.exe` den SHA-256-Wert aus den Release-Hinweisen anzeigen (auch auf der [Downloadseite](https://amada.devliam.com/de/download)).
 
-> Windows 10 oder 11, 64-Bit (getestet unter Windows 11). Der Installer enthält kein Modell: Beim ersten Start fragt Sie ein Einrichtungsassistent nach Ihrer Sprache und lädt dann die von Ihnen ausgewählte Amada-Version herunter (Amada 4.0 INT4 ist die kompakte Version mit 188 MB). PinkHouse läuft noch nicht unter macOS oder Linux.
+> Windows 10 oder 11, 64-Bit (getestet unter Windows 11). Das Installationsprogramm enthält kein Modell: Beim ersten Start fragt Sie ein Einrichtungsassistent nach Ihrer Sprache und lädt dann die von Ihnen ausgewählte Amada-Version herunter (Amada 4.0 INT4 ist die kleine Version mit 188 MB). PinkHouse läuft noch nicht unter macOS oder Linux.
 
-PinkHouse ist für jede Nutzung kostenlos, zu Hause und bei der Arbeit, aber nicht quelloffen: Es unterliegt einer eigenen Lizenz, anders als die MIT-lizenzierten Modelle. Der Installer fordert Sie auf, diese zu akzeptieren. Lesen Sie die [Lizenz](https://amada.devliam.com/de/pinkhouse/license), die [Nutzungsbedingungen](https://amada.devliam.com/de/pinkhouse/terms), die [Datenschutzerklärung](https://amada.devliam.com/de/pinkhouse/privacy) und den [Rechtlichen Hinweis](https://amada.devliam.com/de/pinkhouse/legal-notice). Kurz gesagt: keine Telemetrie, Ihre Texte bleiben auf Ihrem PC, und die App geht nur online, um Modelle aus diesen Releases herunterzuladen.
+PinkHouse ist für jede Nutzung kostenlos, zu Hause oder bei der Arbeit, aber nicht quelloffen: Es hat eine eigene Lizenz, anders als die MIT-lizenzierten Modelle. Das Installationsprogramm bittet Sie, diese zu akzeptieren. Lesen Sie die [Lizenz](https://amada.devliam.com/de/pinkhouse/license), die [Nutzungsbedingungen](https://amada.devliam.com/de/pinkhouse/terms), die [Datenschutzerklärung](https://amada.devliam.com/de/pinkhouse/privacy) und den [Rechtlichen Hinweis](https://amada.devliam.com/de/pinkhouse/legal-notice). Kurz gesagt: keine Telemetrie, Ihre Texte bleiben auf Ihrem PC, und die App geht nur online, um Modelle aus diesen Releases herunterzuladen.
 
 ---
 
 ## Installation
 
-> Anforderungen: **Python 3** und **pip**.
+> Voraussetzungen: **Python 3** und **pip**.
 
 ```bash
 git clone https://github.com/DevLiamDb/Amada.git
@@ -165,10 +165,10 @@ pip install -r requirements.txt
 
 Laden Sie anschließend das Modell herunter:
 
-1. Laden Sie `amada-4.0.zip` aus dem [neuesten Release](https://github.com/DevLiamDb/Amada/releases/latest) herunter (oder das kleinere `amada-4.0-int4.zip`, 188 MB, aus demselben Release).
-2. Entpacken Sie es in einen `Release/`-Ordner neben `play.py`, sodass Sie `Release/amada-4.0/amada_model.onnx` und `Release/amada-4.0/tokenizer/` erhalten.
+1. Laden Sie `amada-4.0.zip` aus dem [neuesten Release](https://github.com/DevLiamDb/Amada/releases/latest) herunter (oder die kleinere Datei `amada-4.0-int4.zip` mit 188 MB aus demselben Release). So überprüfen Sie die Datei: `Get-FileHash amada-4.0.zip` (PowerShell) oder `sha256sum amada-4.0.zip` muss `cfa9786b169505ad643911e79ad26af65177ad5f9b7bcc6734433a03ef25e250` ergeben (INT4: `72c3f9e3ed8cc9cbeda09cd004360eb7e8bb44b6d326a9d4cf027486207345b5`). GitHub zeigt den SHA-256-Wert außerdem neben jeder Datei eines Releases an.
+2. Entpacken Sie die Datei in einen Ordner `Release/` neben `play.py`, sodass Sie `Release/amada-4.0/amada_model.onnx` und `Release/amada-4.0/tokenizer/` erhalten.
 
-> ⚠️ **Belassen Sie den Ordner `tokenizer/` neben `amada_model.onnx`.** Ohne ihn sind die Antworten falsch.
+> ⚠️ **Lassen Sie den Ordner `tokenizer/` neben `amada_model.onnx`.** Ohne ihn fallen die Antworten falsch aus.
 
 ---
 
@@ -224,16 +224,16 @@ Jede Version ist ein Release (Tags `v1.0` bis `v4.0`): eine ZIP-Datei mit dem ON
 
 | Version | Basismodell | Maximale Länge | ZIP-Datei | Hinweise |
 |---|---|:---:|:---:|---|
-| **4.0** (aktuell) | mmBERT-base | 8,192 | 1.16 GB | fehlerhafte Schreibweise, „der Text enthält keine Aussage dazu“, TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: 4× weniger RAM, etwa 1 Punkt niedriger bei AG News und Banking77 |
-| 3.1 | mmBERT-base | 8,192 | 1.16 GB | ähnliche Labels, etwas besser bei Banking77 und Emotion |
+| **4.0** (aktuell) | mmBERT-base | 8,192 | 1.16 GB | fehlerhafte Schreibweise, „der Text sagt es nicht“, TREC |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: 4× weniger RAM, bei den meisten Tests etwa 1 Punkt niedriger, bei Prompt-Injection 3.4 Punkte niedriger |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | ähnliche Labels, etwas besser bei Banking77 und Emotionen |
 | **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: gleiche Genauigkeit, 3× weniger RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 neu kalibriert, gleiche Genauigkeit |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | lange Texte, viele Optionen, Fangfragen-Texte |
-| 2.0 | mmBERT-base | 512 | 1.16 GB | mehrsprachig, „der Text enthält keine Aussage dazu“ |
+| 2.0 | mmBERT-base | 512 | 1.16 GB | mehrsprachig, „der Text sagt es nicht“ |
 | 1.0 | ModernBERT-large | 512 | 1.49 GB | erste Version, nur Englisch |
 
-Was sich in den einzelnen Versionen geändert hat: [CHANGELOG.md](CHANGELOG.md).
+Was sich bei den einzelnen Versionen geändert hat: [CHANGELOG.md](CHANGELOG.md).
 
 ---
 

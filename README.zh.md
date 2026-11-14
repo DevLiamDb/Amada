@@ -135,9 +135,9 @@ Amada **并非**在所有方面都更好：Jev 的阅读准确率高出许多，
 
 <a name="pinkhouse"></a>
 
-## PinkHouse：Amada Windows 应用
+## PinkHouse：作为 Windows 应用的 Amada
 
-PinkHouse 可在您的电脑上运行 Amada，无需 Python：提供一个供您提问的窗口、一个供您的脚本使用的本地 API（`http://127.0.0.1:8787`，带 API 密钥），以及一个模型管理器，可从这些发行版本下载 Amada 的各个版本，并使用 SHA-256 校验每个版本。
+PinkHouse 可在您的电脑上运行 Amada，无需 Python：一个用于提问的窗口、一个供脚本使用的本地 API（`http://127.0.0.1:8787`，带有 API 密钥），以及一个模型管理器，可从这些发行版下载 Amada 的各个版本，并使用 SHA-256 校验每个版本。
 
 要安装，请打开 **PowerShell** 并粘贴：
 
@@ -145,11 +145,11 @@ PinkHouse 可在您的电脑上运行 Amada，无需 Python：提供一个供您
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-[脚本](install.ps1)会从 [PinkHouse 发行版本](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true)下载最新的 `PinkHouse_Setup_<version>_x64.exe`，校验其 SHA-256 并打开安装程序。无需管理员权限。您也可以从 [PinkHouse 1.0.3 发行版本](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3)自行下载安装程序。
+[脚本](install.ps1)会从 [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true)下载最新的 `PinkHouse_Setup_<version>_x64.exe`，校验其 SHA-256 并打开安装程序。无需管理员权限。您也可以从 [PinkHouse 1.0.4 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.4)自行下载安装程序，并在打开前进行校验：在 PowerShell 中，`Get-FileHash .\PinkHouse_Setup_1.0.4_x64.exe`必须显示发行说明中的 SHA-256（[下载页面](https://amada.devliam.com/zh/download)上也有）。
 
-> 适用于 Windows 10 或 11，64 位（已在 Windows 11 上测试）。安装程序不包含模型：首次启动时，设置向导会询问您的语言，然后下载您选择的 Amada（Amada 4.0 INT4 是轻量版本，188 MB）。PinkHouse 目前尚不支持 macOS 或 Linux。
+> Windows 10 或 11，64 位（已在 Windows 11 上测试）。安装程序不包含模型：首次运行时，设置向导会询问您的语言，然后下载您选择的 Amada（Amada 4.0 INT4 是轻量版本，188 MB）。PinkHouse 暂不支持 macOS 或 Linux。
 
-PinkHouse 可免费用于任何用途，无论在家中还是工作中，但它不是开源软件：它有自己的许可证，与采用 MIT 许可证的模型不同。安装程序会要求您接受该许可证。请阅读[许可证](https://amada.devliam.com/zh/pinkhouse/license)、[使用条款](https://amada.devliam.com/zh/pinkhouse/terms)、[隐私政策](https://amada.devliam.com/zh/pinkhouse/privacy)和[法律声明](https://amada.devliam.com/zh/pinkhouse/legal-notice)。简而言之：没有遥测，您的文本会保留在您的电脑上，应用仅会联网以从这些发行版本下载模型。
+PinkHouse 可免费用于任何用途，无论在家中还是工作中，但它不是开源软件：它有自己的许可证，不同于采用 MIT 许可证的模型。安装程序会要求您接受该许可证。请阅读[许可证](https://amada.devliam.com/zh/pinkhouse/license)、[使用条款](https://amada.devliam.com/zh/pinkhouse/terms)、[隐私政策](https://amada.devliam.com/zh/pinkhouse/privacy)和[法律声明](https://amada.devliam.com/zh/pinkhouse/legal-notice)。简而言之：没有遥测，您的文本保留在您的电脑上，应用仅会联网从这些发行版下载模型。
 
 ---
 
@@ -165,10 +165,10 @@ pip install -r requirements.txt
 
 然后获取模型：
 
-1. 从[最新发布版本](https://github.com/DevLiamDb/Amada/releases/latest)下载 `amada-4.0.zip`（或从同一发布版本下载较小的 `amada-4.0-int4.zip`，188 MB）。
-2. 将其解压到与 `play.py` 同级的 `Release/` 文件夹中，以便得到 `Release/amada-4.0/amada_model.onnx` 和 `Release/amada-4.0/tokenizer/`。
+1. 从[最新发行版](https://github.com/DevLiamDb/Amada/releases/latest)下载 `amada-4.0.zip`（或从同一发行版下载较小的 `amada-4.0-int4.zip`，188 MB）。校验文件：`Get-FileHash amada-4.0.zip`（PowerShell）或 `sha256sum amada-4.0.zip`必须得到 `cfa9786b169505ad643911e79ad26af65177ad5f9b7bcc6734433a03ef25e250`（INT4：`72c3f9e3ed8cc9cbeda09cd004360eb7e8bb44b6d326a9d4cf027486207345b5`）。GitHub 也会在发行版的每个文件旁显示 SHA-256。
+2. 将其解压到与 `play.py` 同级的 `Release/` 文件夹中，这样您会得到 `Release/amada-4.0/amada_model.onnx` 和 `Release/amada-4.0/tokenizer/`。
 
-> ⚠️ **请将 `tokenizer/` 文件夹放在 `amada_model.onnx` 旁边。**否则，答案会出错。
+> ⚠️ **请将 `tokenizer/` 文件夹放在 `amada_model.onnx` 旁边。**否则，回答会出错。
 
 ---
 
@@ -220,20 +220,20 @@ print(answers)   # [{'p_yes': ..., 'p_unknown': ...}, {'probs': {'none': ..., ..
 
 ## 下载
 
-每个版本都是一个发布版本（标签从 `v1.0` 到 `v4.0`）：一个包含 ONNX 模型及其分词器的 zip 文件。PinkHouse 应用有自己的发布版本（标签为 `pinkhouse-v…`）。
+每个版本都是一个发行版（标签从 `v1.0` 到 `v4.0`）：一个包含 ONNX 模型及其分词器的 zip 文件。PinkHouse 应用有自己的发行版（标签为 `pinkhouse-v…`）。
 
-| 版本 | 基础模型 | 最大长度 | 压缩包 | 备注 |
+| 版本 | 基础模型 | 最大长度 | Zip | 说明 |
 |---|---|:---:|:---:|---|
-| **4.0**（当前） | mmBERT-base | 8,192 | 1.16 GB | 混乱的写法、“文本中没有说明”、TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | 同一模型，4 位权重：内存减少 4×，在 AG News 和 Banking77 上的分数约低 1 分 |
-| 3.1 | mmBERT-base | 8,192 | 1.16 GB | 相近标签，在 Banking77 和情绪识别上略有提升 |
-| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | 同一模型，4 位权重：准确率相同，内存减少 3× |
+| **4.0**（当前） | mmBERT-base | 8,192 | 1.16 GB | 处理不规范的写法、“文本未提及”、TREC |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | 同一模型，4 位权重：RAM 占用减少 4×，多数测试的得分约低 1 分，提示注入测试低 3.4 分 |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | 标签近邻处理，在 Banking77 和情绪识别上略有提升 |
+| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | 同一模型，4 位权重：准确率相同，RAM 占用减少 3× |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 重新校准的 3.0，准确率相同 |
-| 3.0 | mmBERT-base | 8,192 | 1.16 GB | 长文本、多个选项、陷阱文本 |
-| 2.0 | mmBERT-base | 512 | 1.16 GB | 多语言、“文本中没有说明” |
+| 3.0 | mmBERT-base | 8,192 | 1.16 GB | 长文本、众多选项、陷阱文本 |
+| 2.0 | mmBERT-base | 512 | 1.16 GB | 多语言、“文本未提及” |
 | 1.0 | ModernBERT-large | 512 | 1.49 GB | 首个版本，仅支持英语 |
 
-各版本的变更：[CHANGELOG.md](CHANGELOG.md)。
+各版本的变更内容：[CHANGELOG.md](CHANGELOG.md)。
 
 ---
 

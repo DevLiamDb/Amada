@@ -5,7 +5,7 @@
 # Finds the newest PinkHouse release of github.com/DevLiamDb/Amada (tags pinkhouse-v...), downloads
 # PinkHouse_Setup_<version>_x64.exe, checks its SHA-256 against the one GitHub publishes for the file,
 # then opens the installer. No admin rights needed: PinkHouse installs for the current Windows user.
-# Nothing else is downloaded: the app downloads an Amada model later, when you choose one in MODELS.
+# Nothing else is downloaded: the app downloads an Amada model later, when you choose one in its setup wizard or in MODELS.
 
 & {
     $ErrorActionPreference = 'Stop'

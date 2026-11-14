@@ -135,7 +135,7 @@ Amada **no** es mejor en todo: Jev es mucho más preciso en comprensión lectora
 
 ## PinkHouse: Amada como aplicación de Windows
 
-PinkHouse ejecuta Amada en su PC sin Python: una ventana para hacer sus preguntas, una API local para sus scripts (`http://127.0.0.1:8787`, con claves de API) y un administrador de modelos que descarga las versiones de Amada de estas versiones y comprueba cada una con SHA-256.
+PinkHouse ejecuta Amada en su PC sin Python: una ventana para hacer sus preguntas, una API local para sus scripts (`http://127.0.0.1:8787`, con claves de API) y un gestor de modelos que descarga las versiones de Amada de estas publicaciones y verifica cada una con SHA-256.
 
 Para instalarlo, abra **PowerShell** y pegue:
 
@@ -143,11 +143,11 @@ Para instalarlo, abra **PowerShell** y pegue:
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-El [script](install.ps1) descarga el `PinkHouse_Setup_<version>_x64.exe` más reciente de las [versiones de PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), comprueba su SHA-256 y abre el instalador. No se necesitan permisos de administrador. También puede descargar el instalador usted mismo desde la [versión 1.0.3 de PinkHouse](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3).
+El [script](install.ps1) descarga el archivo más reciente `PinkHouse_Setup_<version>_x64.exe` de las [publicaciones de PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), verifica su SHA-256 y abre el instalador. No necesita permisos de administrador. También puede descargar el instalador por su cuenta desde la [publicación PinkHouse 1.0.4](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.4) y verificarlo antes de abrirlo: en PowerShell, `Get-FileHash .\PinkHouse_Setup_1.0.4_x64.exe` debe mostrar el SHA-256 de las notas de la publicación (también en la [página de descarga](https://amada.devliam.com/es/download)).
 
 > Windows 10 u 11, 64 bits (probado en Windows 11). El instalador no incluye ningún modelo: la primera vez, un asistente de configuración le pregunta su idioma y luego descarga la versión de Amada que elija (Amada 4.0 INT4 es la ligera, 188 MB). PinkHouse aún no funciona en macOS ni Linux.
 
-PinkHouse es gratis para cualquier uso, en casa o en el trabajo, pero no es de código abierto: tiene su propia licencia, a diferencia de los modelos con licencia MIT. El instalador le pide que la acepte. Lea la [Licencia](https://amada.devliam.com/es/pinkhouse/license), los [Términos de uso](https://amada.devliam.com/es/pinkhouse/terms), la [Política de privacidad](https://amada.devliam.com/es/pinkhouse/privacy) y el [Aviso legal](https://amada.devliam.com/es/pinkhouse/legal-notice). En resumen: no hay telemetría, sus textos permanecen en su PC y la aplicación solo se conecta a Internet para descargar modelos de estas versiones.
+PinkHouse es gratis para cualquier uso, en casa o en el trabajo, pero no es de código abierto: tiene su propia licencia, a diferencia de los modelos con licencia MIT. El instalador le pide que la acepte. Lea la [Licencia](https://amada.devliam.com/es/pinkhouse/license), los [Términos de uso](https://amada.devliam.com/es/pinkhouse/terms), la [Política de privacidad](https://amada.devliam.com/es/pinkhouse/privacy) y el [Aviso legal](https://amada.devliam.com/es/pinkhouse/legal-notice). En resumen: no hay telemetría, sus textos permanecen en su PC y la aplicación solo se conecta a Internet para descargar modelos de estas publicaciones.
 
 ---
 
@@ -161,10 +161,10 @@ cd Amada
 pip install -r requirements.txt
 ```
 
-Después, obtenga el modelo:
+Luego obtenga el modelo:
 
-1. Descargue `amada-4.0.zip` de la [última versión](https://github.com/DevLiamDb/Amada/releases/latest) (o el archivo más pequeño `amada-4.0-int4.zip`, de 188 MB, de esa misma versión).
-2. Descomprímalo en una carpeta `Release/` junto a `play.py`, de modo que obtenga `Release/amada-4.0/amada_model.onnx` y `Release/amada-4.0/tokenizer/`.
+1. Descargue `amada-4.0.zip` de la [última publicación](https://github.com/DevLiamDb/Amada/releases/latest) (o el archivo más pequeño `amada-4.0-int4.zip`, 188 MB, de la misma publicación). Para verificar el archivo: `Get-FileHash amada-4.0.zip` (PowerShell) o `sha256sum amada-4.0.zip` debe dar `cfa9786b169505ad643911e79ad26af65177ad5f9b7bcc6734433a03ef25e250` (INT4: `72c3f9e3ed8cc9cbeda09cd004360eb7e8bb44b6d326a9d4cf027486207345b5`). GitHub también muestra el SHA-256 junto a cada archivo de una publicación.
+2. Descomprímalo en una carpeta `Release/` junto a `play.py`, para obtener `Release/amada-4.0/amada_model.onnx` y `Release/amada-4.0/tokenizer/`.
 
 > ⚠️ **Mantenga la carpeta `tokenizer/` junto a `amada_model.onnx`.** Sin ella, las respuestas serán incorrectas.
 
@@ -222,16 +222,16 @@ Cada versión es una publicación (etiquetas `v1.0` a `v4.0`): un archivo zip co
 
 | Versión | Modelo base | Longitud máx. | Zip | Notas |
 |---|---|:---:|:---:|---|
-| **4.0** (actual) | mmBERT-base | 8,192 | 1.16 GB | escritura desordenada, «el texto no lo indica», TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: 4× menos RAM, aproximadamente 1 punto menos en AG News y Banking77 |
-| 3.1 | mmBERT-base | 8,192 | 1.16 GB | etiquetas de vecinos cercanos, algo mejor en Banking77 y emociones |
+| **4.0** (actual) | mmBERT-base | 8,192 | 1.16 GB | escritura desordenada, «el texto no lo dice», TREC |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: 4× menos RAM, cerca de 1 punto menos en la mayoría de las pruebas, 3.4 puntos menos en inyección de prompts |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | etiquetas de clases cercanas, un poco mejor en Banking77 y emociones |
 | **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: misma precisión, 3× menos RAM |
-| 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrada, misma precisión |
+| 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrado, misma precisión |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | textos largos, muchas opciones, textos trampa |
-| 2.0 | mmBERT-base | 512 | 1.16 GB | multilingüe, «el texto no lo indica» |
+| 2.0 | mmBERT-base | 512 | 1.16 GB | multilingüe, «el texto no lo dice» |
 | 1.0 | ModernBERT-large | 512 | 1.49 GB | primera versión, solo en inglés |
 
-Qué cambió en cada versión: [CHANGELOG.md](CHANGELOG.md).
+Cambios de cada versión: [CHANGELOG.md](CHANGELOG.md).
 
 ---
 

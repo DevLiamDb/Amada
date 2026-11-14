@@ -46,7 +46,7 @@ fine-tunes (1 epoch each, T4 GPU), then recalibrated. Shown as "Amada 4" on the 
   in 3.1. Exact score level -0.8 point in English. Very long texts not improved.
 - Added (2026-11-12): `amada-4.0-int4.zip`, the same model with 4-bit weights (196 MB instead of 1.25 GB, needs
   onnxruntime 1.20 or newer). Same 43,799 benchmark items as 4.0, compared answer by answer: SST-2 0.890, AG News 0.793
-  (-1.0), Banking77 0.574 (-1.2), emotion 0.464 (+1.7), tweet_topic 0.711, prompt injection 0.810, When2Call 0.340;
+  (-1.0), Banking77 0.574 (-1.2), emotion 0.464 (+1.7), tweet_topic 0.711, prompt injection 0.810 (-3.4, only 116 texts: within chance), When2Call 0.340;
   11 languages: yes / no 0.837, Belebele 0.559, MASSIVE 0.829. Short tests: English 0.892 vs 0.896, score 0.742 vs 0.759,
   11 languages 0.983 vs 0.985; held-out ECE yes / no 0.008, choice 0.014, score 0.031. About 340 MB of RAM after loading
   instead of 1.4 GB, about the same speed. Activations stay in FP32.
