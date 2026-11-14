@@ -43,7 +43,7 @@
 
 ---
 
-> Amada schreibt **keine** Texte. Sie geben dem Modell einen Text und eine oder mehrere Fragen, und es gibt Zahlen zurück, die Ihr Code direkt verwenden kann: die Wahrscheinlichkeit für Ja, einen Anteil für jede Option, einen Wert auf einer Skala und die Wahrscheinlichkeit, dass **der Text dazu einfach keine Auskunft gibt**.
+> Amada **schreibt keine Texte**. Sie geben Amada einen Text und eine oder mehrere Fragen. Amada gibt Zahlen zurück, die Ihr Code direkt verwenden kann: die Wahrscheinlichkeit für „Ja“, einen Anteil für jede Option, einen Wert auf einer Skala und die Wahrscheinlichkeit, dass **der Text dazu schlicht keine Aussage enthält**.
 
 <div align="center">
 <table>
@@ -51,23 +51,23 @@
 <td align="center" width="16%">
 
 **🎯 Drei Fragetypen**<br>
-ja / nein, eine auswählen,<n>
+Ja / Nein, eine Option auswählen,<n>
 Wert auf einer Skala
 
 </td>
 <td align="center" width="16%">
 
 **🤷 Sagt „Ich weiß es nicht“**<br>
-Wenn der Text<br>
-keine Antwort gibt, sagt es das,<br>
+Wenn der Text keine<br>
+Antwort enthält, sagt Amada das,<br>
 statt zu raten
 
 </td>
 <td align="center" width="16%">
 
 **📏 Kalibriert**<br>
-Wenn das Modell 80 % angibt,<n>
-liegt es in etwa<br>
+Wenn Amada 80 % angibt,<br>
+liegt sie in etwa<br>
 80 % der Fälle richtig
 
 </td>
@@ -81,8 +81,8 @@ kein Internet, kein Konto
 <td align="center" width="16%">
 
 **⚡ Schnell**<br>
-~40 ms für eine kurze<br>
-Ja-/Nein-Frage<br>
+~50 ms für eine kurze<br>
+Ja / Nein-Frage<br>
 auf einer Laptop-CPU*
 
 </td>
@@ -101,22 +101,22 @@ bis zu 8,192 Tokens
 
 ## Warum Amada
 
-Wir haben **Jev 1.14** (TypeSafes geschlossenes Entscheidungsmodell) am 8. November 2026 und Amada mit genau denselben Texten, denselben Fragen und denselben Optionen ausgeführt.
+Wir haben **Jev 1.14** (TypeSafes geschlossenes Entscheidungsmodell) am 8. November 2026 und Amada mit exakt denselben Texten, Fragen und Optionen getestet.
 
 | | Jev 1.14 (kostenpflichtige API) | Amada 4.0 |
 |---|:---:|:---:|
-| Wo es läuft | TypeSafes Server | **Ihre eigene CPU** |
+| Ausführungsort | TypeSafes Server | **Ihre eigene CPU** |
 | Preis | $0.042 pro Million Tokens | **kostenlos** |
-| Ihr Text verlässt Ihren Rechner | ja | **nie** |
-| Eine kurze Ja-/Nein-Frage | ≈ 245 ms (Internet inbegriffen) | **≈ 40 ms** (×6 schneller)* |
+| Ihr Text verlässt Ihr Gerät | ja | **nie** |
+| Eine kurze Ja / Nein-Frage | ≈ 247 ms (einschließlich Internet) | **≈ 54 ms** (×4.5 schneller)* |
 | Sprachanfrage, 60 Intents | **≈ 270 ms** | ≈ 390 ms |
-| Prompt-Injection (116 Nachrichten) | 0.733 | **0.845** |
+| Prompt Injection (116 Nachrichten) | 0.733 | **0.845** |
 | Leseverständnis, 11 Sprachen (Belebele) | **0.947** | 0.554 |
-| Öffentliche Datensätze, bei denen es besser abschneidet | **6 von 7** | 1 von 7 |
+| Öffentliche Datensätze, bei denen das Modell besser abschneidet | **6 von 7** | 1 von 7 |
 
-\* Medianzeit auf einem Laptop (Intel Core i5-11400H, 4 CPU-Threads, ONNX Runtime), mit 4.0 am 12. November 2026 gemessen: 41 ms für eine Bildschirmtextzeile, 54 ms für eine kurze Notiz. Sie hängt von Ihrem Prozessor, der Textlänge und der Anzahl der Optionen ab: 60 Optionen dauern ~390 ms. Methode: [Methodik](https://amada.devliam.com/methodology.pdf).
+\* Medianzeit auf einem Laptop (Intel Core i5-11400H, 4 CPU-Threads, ONNX Runtime), gemessen mit 4.0 am 12. November 2026: 41 ms für eine Zeile Bildschirmtext, 54 ms für eine kurze Notiz. Die Zeit hängt von Ihrem Prozessor, der Textlänge und der Anzahl der Optionen ab: 60 Optionen dauern ~390 ms. Methode: [Methodik](https://amada.devliam.com/methodology.pdf).
 
-Amada ist **nicht** überall besser: Jev ist beim Leseverständnis in jeder Sprache und bei 6 von 7 öffentlichen Datensätzen deutlich genauer. Amada punktet bei kurzen Fragen mit Geschwindigkeit, beim Preis, beim Datenschutz und bei Prompt-Injection. Alle Zahlen, die guten wie die schlechten, finden Sie auf der [Benchmark-Seite](https://amada.devliam.com/de/benchmark).
+Amada ist **nicht** überall besser: Jev ist beim Lesen in jeder Sprache und bei 6 von 7 öffentlichen Datensätzen deutlich genauer. Amada ist bei kurzen Fragen schneller, günstiger, privater und besser gegen Prompt Injection. Alle Zahlen, die guten wie die schlechten, finden Sie auf der [Benchmark-Seite](https://amada.devliam.com/de/benchmark).
 
 ---
 
@@ -220,20 +220,20 @@ Amada kennt nur den Text, den Sie eingeben. Kein Internet, kein Gedächtnis, kei
 
 ## Downloads
 
-Jede Version ist ein Release (Tags `v1.0` bis `v4.0`): eine ZIP-Datei mit dem ONNX-Modell und seinem Tokenizer. Die PinkHouse-App hat eigene Releases (Tags `pinkhouse-v…`).
+Jede Version ist ein Release (Tags `v1.0` bis `v4.0`): eine Zip-Datei mit dem ONNX-Modell und seinem Tokenizer. Die PinkHouse-App hat eigene Releases (Tags `pinkhouse-v…`).
 
-| Version | Basismodell | Maximale Länge | ZIP-Datei | Hinweise |
+| Version | Basismodell | Maximale Länge | Zip-Datei | Hinweise |
 |---|---|:---:|:---:|---|
-| **4.0** (aktuell) | mmBERT-base | 8,192 | 1.16 GB | fehlerhafte Schreibweise, „der Text sagt es nicht“, TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: 4× weniger RAM, bei den meisten Tests etwa 1 Punkt niedriger, bei Prompt-Injection 3.4 Punkte niedriger |
-| 3.1 | mmBERT-base | 8,192 | 1.16 GB | ähnliche Labels, etwas besser bei Banking77 und Emotionen |
-| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: gleiche Genauigkeit, 3× weniger RAM |
+| **4.0** (aktuell) | mmBERT-base | 8,192 | 1.16 GB | fehlerhafte Schreibweise, „der Text enthält keine Aussage dazu“, TREC |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: 4× weniger RAM, bei den meisten Tests etwa 1 Punkt niedriger, bei Prompt Injection 3.4 Punkte niedriger |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | Bezeichnungen für ähnliche Nachbarn, etwas besser bei Banking77 und Emotionen |
+| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | dasselbe Modell, 4-Bit-Gewichte: gleiche Genauigkeit, 4× weniger RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 neu kalibriert, gleiche Genauigkeit |
-| 3.0 | mmBERT-base | 8,192 | 1.16 GB | lange Texte, viele Optionen, Fangfragen-Texte |
-| 2.0 | mmBERT-base | 512 | 1.16 GB | mehrsprachig, „der Text sagt es nicht“ |
+| 3.0 | mmBERT-base | 8,192 | 1.16 GB | lange Texte, viele Optionen, Fangtexte |
+| 2.0 | mmBERT-base | 512 | 1.16 GB | mehrsprachig, „der Text enthält keine Aussage dazu“ |
 | 1.0 | ModernBERT-large | 512 | 1.49 GB | erste Version, nur Englisch |
 
-Was sich bei den einzelnen Versionen geändert hat: [CHANGELOG.md](CHANGELOG.md).
+Was sich in den einzelnen Versionen geändert hat: [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
@@ -345,24 +345,24 @@ text + questions ──► tokenizer ──► encoder (mmBERT-base, ONNX, CPU) 
 <br>
 
 **Kann ich Amada in einem Unternehmen oder einem kostenpflichtigen Produkt verwenden?**
-Ja. Amada steht unter der MIT-Lizenz: Die kommerzielle Nutzung ist erlaubt. Bewahren Sie den Copyright-Vermerk und den Lizenztext bei den Dateien auf.
+Ja. Amada steht unter der MIT-Lizenz: Die kommerzielle Nutzung ist erlaubt. Bewahren Sie den Urheberrechtshinweis und den Lizenztext bei den Dateien auf.
 
 **Kann ich das Modell feinabstimmen?**
-Ja, und Sie dürfen Ihre feinabgestimmte Version auch weitergeben oder verkaufen. Bewahren Sie den MIT-Hinweis (und NOTICE.md) dabei auf.
+Ja, und Sie dürfen Ihre feinabgestimmte Version auch weitergeben oder verkaufen. Bewahren Sie den MIT-Hinweis (und NOTICE.md) bei der Version auf.
 
 **Welche Version sollte ich verwenden?**
-4.0 für die meisten Anwendungsfälle. 4.0 INT4, wenn Sie einen kleinen Download oder wenig RAM benötigen (bei einigen Klassifizierungsaufgaben etwa 1 Punkt niedriger), oder 3.1, wenn Ihre Aufgabe Banking77 oder Emotion ähnelt. Die älteren Versionen dienen zum Vergleichen.
+4.0 für die meisten Anwendungsfälle. 4.0 INT4, wenn Sie einen kleinen Download oder wenig RAM benötigen (bei den meisten Tests etwa 1 Punkt niedriger, bei Prompt Injection 3.4 Punkte niedriger), oder 3.1, wenn Ihre Aufgabe Banking77 oder Emotion ähnelt. Die älteren Versionen dienen zum Vergleichen.
 
 **Wie viele Optionen kann eine Auswahlfrage haben?**
-Zwei oder mehr, ohne festgelegtes Maximum: Text, Frage und Optionen müssen zusammen in 8,192 Tokens passen. 3.0 und spätere Versionen wurden mit Listen von bis zu 386 Optionen trainiert.
+Zwei oder mehr, ohne festgelegtes Maximum: Der Text, die Frage und die Optionen müssen zusammen in 8,192 Tokens passen. 3.0 und spätere Versionen wurden mit Listen von bis zu 386 Optionen trainiert.
 
 **Welche Hardware benötige ich?**
-Eine normale CPU. Etwa 9 Sekunden zum Laden und nach dem Laden etwa 1.4 GB RAM (FP32); mit INT4 höchstens etwa 1.2 GB. Keine GPU, nach dem Download kein Internet erforderlich.
+Eine normale CPU. Etwa 9 Sekunden zum Laden und nach dem Laden etwa 1.4 GB RAM (FP32); mit INT4 höchstens etwa 1.2 GB. Keine GPU, nach dem Herunterladen kein Internet.
 
 **Gibt es eine API oder eine gehostete Version?**
 Nein. Amada läuft auf Ihrem eigenen Computer.
 
-**Die Antworten wirken falsch.**
+**Die Antworten sehen falsch aus.**
 Prüfen Sie, ob sich der Ordner `tokenizer/` neben `amada_model.onnx` befindet.
 
 </details>

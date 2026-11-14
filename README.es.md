@@ -50,23 +50,22 @@
 <tr>
 <td align="center" width="16%">
 
-**🎯 Tres tipos de preguntas**<br>
-sí / no, elegir una opción,<br>
+**🎯 Tres preguntas**<br>
+sí / no, elegir una,<br>
 nivel en una escala
 
 </td>
 <td align="center" width="16%">
 
 **🤷 Dice «No lo sé»**<br>
-Cuando el texto no da<br>una respuesta, lo indica<br>
+Cuando el texto no da<br>una respuesta, lo dice<br>
 en lugar de adivinar
 
 </td>
 <td align="center" width="16%">
 
 **📏 Calibrado**<br>
-Cuando indica 80 %,<br>
-acierta aproximadamente<br>
+Cuando indica 80 %,<br>acierta aproximadamente<br>
 el 80 % de las veces
 
 </td>
@@ -74,14 +73,13 @@ el 80 % de las veces
 
 **🏠 100% local**<br>
 Solo CPU, sin GPU,<br>
-sin internet ni cuenta
+sin internet, sin cuenta
 
 </td>
 <td align="center" width="16%">
 
 **⚡ Rápido**<br>
-~40 ms para una pregunta<br>corta de sí / no<br>
-en una CPU de portátil*
+~50 ms para una pregunta<br>corta de sí / no<br>en la CPU de un portátil*
 
 </td>
 <td align="center" width="16%">
@@ -99,22 +97,22 @@ hasta 8,192 tokens
 
 ## Por qué Amada
 
-El 8 de noviembre de 2026, ejecutamos **Jev 1.14** (el modelo de decisión cerrado de TypeSafe) y Amada con exactamente los mismos textos, las mismas preguntas y las mismas opciones.
+Ejecutamos **Jev 1.14** (el modelo de decisiones cerrado de TypeSafe) el 8 de noviembre de 2026, y Amada con exactamente los mismos textos, las mismas preguntas y las mismas opciones.
 
 | | Jev 1.14 (API de pago) | Amada 4.0 |
 |---|:---:|:---:|
 | Dónde se ejecuta | Servidores de TypeSafe | **su propia CPU** |
 | Precio | $0.042 por millón de tokens | **gratis** |
 | Su texto sale de su equipo | sí | **nunca** |
-| Una pregunta corta de sí / no | ≈ 245 ms (incluye internet) | **≈ 40 ms** (×6 más rápido)* |
+| Una pregunta corta de sí / no | ≈ 247 ms (incluye internet) | **≈ 54 ms** (×4.5 más rápido)* |
 | Solicitud de voz, 60 intenciones | **≈ 270 ms** | ≈ 390 ms |
 | Inyección de prompts (116 mensajes) | 0.733 | **0.845** |
 | Comprensión lectora, 11 idiomas (Belebele) | **0.947** | 0.554 |
 | Conjuntos de datos públicos en los que gana | **6 de 7** | 1 de 7 |
 
-\* Tiempo mediano en un portátil (Intel Core i5-11400H, 4 hilos de CPU, ONNX Runtime), medido con 4.0 el 12 de noviembre de 2026: 41 ms para una línea de texto en pantalla, 54 ms para una nota breve. Depende de su procesador, de la longitud del texto y del número de opciones: 60 opciones tardan ~390 ms. Método: [metodología](https://amada.devliam.com/methodology.pdf).
+\* Tiempo mediano en un portátil (Intel Core i5-11400H, 4 subprocesos de CPU, ONNX Runtime), medido con 4.0 el 12 de noviembre de 2026: 41 ms para una línea de texto en pantalla, 54 ms para una nota breve. Depende de su procesador, de la longitud del texto y del número de opciones: 60 opciones tardan ~390 ms. Método: [metodología](https://amada.devliam.com/methodology.pdf).
 
-Amada **no** es mejor en todo: Jev es mucho más preciso en comprensión lectora, en todos los idiomas y en 6 de 7 conjuntos de datos públicos. Amada gana en velocidad para preguntas breves, precio, privacidad e inyección de prompts. Todas las cifras, tanto las buenas como las malas, están en la [página de evaluación comparativa](https://amada.devliam.com/es/benchmark).
+Amada **no** es mejor en todo: Jev es mucho más preciso en comprensión lectora, en todos los idiomas y en 6 de 7 conjuntos de datos públicos. Amada gana en velocidad para preguntas cortas, precio, privacidad e inyección de prompts. Todos los resultados, tanto los buenos como los malos, están en la [página de benchmarks](https://amada.devliam.com/es/benchmark).
 
 ---
 
@@ -218,14 +216,14 @@ Solo conoce el texto que usted le proporciona. Sin internet, sin memoria, sin ge
 
 ## Descargas
 
-Cada versión es una publicación (etiquetas `v1.0` a `v4.0`): un archivo zip con el modelo ONNX y su tokenizador. La aplicación PinkHouse tiene sus propias publicaciones (etiquetas `pinkhouse-v…`).
+Cada versión es una publicación (etiquetas `v1.0` a `v4.0`): un zip con el modelo ONNX y su tokenizador. La aplicación PinkHouse tiene sus propias publicaciones (etiquetas `pinkhouse-v…`).
 
 | Versión | Modelo base | Longitud máx. | Zip | Notas |
 |---|---|:---:|:---:|---|
 | **4.0** (actual) | mmBERT-base | 8,192 | 1.16 GB | escritura desordenada, «el texto no lo dice», TREC |
-| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: 4× menos RAM, cerca de 1 punto menos en la mayoría de las pruebas, 3.4 puntos menos en inyección de prompts |
-| 3.1 | mmBERT-base | 8,192 | 1.16 GB | etiquetas de clases cercanas, un poco mejor en Banking77 y emociones |
-| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: misma precisión, 3× menos RAM |
+| **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: 4× menos RAM, aproximadamente 1 punto menos en la mayoría de las pruebas, 3.4 puntos menos en inyección de prompts |
+| 3.1 | mmBERT-base | 8,192 | 1.16 GB | etiquetas de vecinos cercanos, un poco mejor en Banking77 y emociones |
+| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | mismo modelo, pesos de 4 bits: misma precisión, 4× menos RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrado, misma precisión |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | textos largos, muchas opciones, textos trampa |
 | 2.0 | mmBERT-base | 512 | 1.16 GB | multilingüe, «el texto no lo dice» |
@@ -343,19 +341,19 @@ text + questions ──► tokenizer ──► encoder (mmBERT-base, ONNX, CPU) 
 <br>
 
 **¿Puedo usar Amada en una empresa o en un producto de pago?**
-Sí. Amada cuenta con licencia MIT: se permite el uso comercial. Conserve la línea de derechos de autor y el texto de la licencia junto con los archivos.
+Sí. Amada está bajo la licencia MIT: se permite el uso comercial. Mantenga la línea de copyright y el texto de la licencia junto con los archivos.
 
 **¿Puedo ajustarlo con fine-tuning?**
-Sí, y también puede compartir o vender su versión ajustada. Conserve el aviso de MIT (y NOTICE.md) junto con ella.
+Sí, y también puede compartir o vender su versión ajustada. Mantenga el aviso de MIT (y NOTICE.md) junto con ella.
 
 **¿Qué versión debería usar?**
-4.0 para la mayoría de los usos. 4.0 INT4 si necesita una descarga pequeña o poca RAM (aproximadamente 1 punto menos en algunas tareas de clasificación), o 3.1 si su tarea se parece a Banking77 o a la clasificación de emociones. Las versiones anteriores están disponibles para comparar.
+4.0 para la mayoría de los usos. 4.0 INT4 si necesita una descarga pequeña o poca RAM (aproximadamente 1 punto menos en la mayoría de las pruebas, 3.4 puntos menos en inyección de prompts), o 3.1 si su tarea se parece a Banking77 o a la detección de emociones. Las versiones anteriores están disponibles para comparar.
 
 **¿Cuántas opciones puede tener una pregunta de elección?**
 Dos o más, sin un máximo fijo: el texto, la pregunta y las opciones deben caber juntas en 8,192 tokens. 3.0 y las versiones posteriores se entrenaron con listas de hasta 386 opciones.
 
 **¿Qué hardware necesito?**
-Una CPU normal. Unos 9 segundos para cargar y aproximadamente 1.4 GB de RAM después de la carga (FP32); como máximo, unos 1.2 GB con INT4. Sin GPU ni conexión a internet una vez descargado.
+Una CPU normal. Unos 9 segundos para cargar y unos 1.4 GB de RAM después de la carga (FP32); como máximo unos 1.2 GB con INT4. Sin GPU ni conexión a internet una vez descargado.
 
 **¿Hay una API o una versión alojada?**
 No. Amada se ejecuta en su propio equipo.

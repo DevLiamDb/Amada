@@ -81,7 +81,7 @@ no internet, no account
 <td align="center" width="16%">
 
 **⚡ Fast**<br>
-~40 ms for a short<br>
+~50 ms for a short<br>
 yes / no question<br>
 on a laptop CPU*
 
@@ -108,7 +108,7 @@ We ran **Jev 1.14** (TypeSafe's closed decision model) on 8 November 2026, and A
 | Where it runs | TypeSafe's servers | **your own CPU** |
 | Price | $0.042 per million tokens | **free** |
 | Your text leaves your machine | yes | **never** |
-| One short yes / no question | ≈ 245 ms (internet included) | **≈ 40 ms** (×6 faster)* |
+| One short yes / no question | ≈ 247 ms (internet included) | **≈ 54 ms** (×4.5 faster)* |
 | Voice request, 60 intents | **≈ 270 ms** | ≈ 390 ms |
 | Prompt injection (116 messages) | 0.733 | **0.845** |
 | Reading, 11 languages (Belebele) | **0.947** | 0.554 |
@@ -227,7 +227,7 @@ Every version is a release (tags `v1.0` to `v4.0`): one zip with the ONNX model 
 | **4.0** (current) | mmBERT-base | 8,192 | 1.16 GB | messy writing, "the text does not say", TREC |
 | **4.0 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: 4× less RAM, about 1 point lower on most tests, 3.4 points lower on prompt injection |
 | 3.1 | mmBERT-base | 8,192 | 1.16 GB | near-neighbour labels, a little better on Banking77 and emotion |
-| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: same accuracy, 3× less RAM |
+| **3.1 INT4** | mmBERT-base | 8,192 | **188 MB** | same model, 4-bit weights: same accuracy, 4× less RAM |
 | 3.0.1 | mmBERT-base | 8,192 | 1.16 GB | 3.0 recalibrated, same accuracy |
 | 3.0 | mmBERT-base | 8,192 | 1.16 GB | long texts, many options, trap texts |
 | 2.0 | mmBERT-base | 512 | 1.16 GB | multilingual, "the text does not say" |
@@ -351,7 +351,7 @@ Yes. Amada is MIT licensed: commercial use is allowed. Keep the copyright line a
 Yes, and you may share or sell your fine-tuned version too. Keep the MIT notice (and NOTICE.md) with it.
 
 **Which version should I use?**
-4.0 for most uses. 4.0 INT4 if you need a small download or little RAM (about 1 point lower on some classification tasks), or 3.1 if your task looks like Banking77 or emotion. The older versions are there to compare.
+4.0 for most uses. 4.0 INT4 if you need a small download or little RAM (about 1 point lower on most tests, 3.4 points lower on prompt injection), or 3.1 if your task looks like Banking77 or emotion. The older versions are there to compare.
 
 **How many options can a choice question have?**
 Two or more, no fixed maximum: the text, the question and the options must fit together in 8,192 tokens. 3.0 and later were trained with lists of up to 386 options.
