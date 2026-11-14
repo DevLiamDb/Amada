@@ -137,7 +137,7 @@ Amada **не** лучше во всём: Jev намного точнее спр�
 
 ## PinkHouse: Amada как приложение для Windows
 
-PinkHouse запускает Amada на вашем ПК без Python: окно для вопросов, локальный API для ваших скриптов (`http://127.0.0.1:8787`, с API-ключами) и менеджер моделей, который загружает версии Amada из этих релизов и проверяет каждую с помощью SHA-256.
+PinkHouse запускает Amada на вашем ПК без Python: окно для вопросов, локальный API для ваших скриптов (`http://127.0.0.1:8787`, с ключами API) и менеджер моделей, который скачивает версии Amada из этих релизов и проверяет каждую с помощью SHA-256.
 
 Чтобы установить приложение, откройте **PowerShell** и вставьте:
 
@@ -145,11 +145,11 @@ PinkHouse запускает Amada на вашем ПК без Python: окно 
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-[Скрипт](install.ps1) загружает новейший файл `PinkHouse_Setup_<version>_x64.exe` из [релизов PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), проверяет его SHA-256 и запускает установщик. Права администратора не нужны. Вы также можете самостоятельно скачать установщик из [релиза PinkHouse 1.0.2](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.2).
+[Скрипт](install.ps1) скачивает новейший `PinkHouse_Setup_<version>_x64.exe` из [релизов PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), проверяет его SHA-256 и открывает установщик. Права администратора не нужны. Вы также можете самостоятельно скачать установщик из [релиза PinkHouse 1.0.3](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3).
 
-> Windows 10 или 11, 64-разрядная версия (проверено на Windows 11). Установщик не содержит модели: при первом запуске выберите одну в разделе **MODELS** (Amada 4.0 INT4 — облегчённая версия, 188 MB). PinkHouse пока не работает на macOS или Linux.
+> Windows 10 или 11, 64-разрядная версия (проверено на Windows 11). Установщик не содержит моделей: при первом запуске мастер установки спросит ваш язык, затем скачает выбранную вами Amada (Amada 4.0 INT4 — лёгкая версия, 188 MB). PinkHouse пока не работает на macOS или Linux.
 
-PinkHouse бесплатна для любого использования, дома или на работе, но это приложение с закрытым исходным кодом: у него собственная лицензия, в отличие от моделей под лицензией MIT. Установщик попросит вас принять её. Ознакомьтесь с документами: [Лицензия](https://amada.devliam.com/ru/pinkhouse/license), [Условия использования](https://amada.devliam.com/ru/pinkhouse/terms), [Политика конфиденциальности](https://amada.devliam.com/ru/pinkhouse/privacy) и [Юридическое уведомление](https://amada.devliam.com/ru/pinkhouse/legal-notice). Кратко: телеметрии нет, ваши тексты остаются на вашем ПК, а приложение подключается к интернету только для загрузки моделей из этих релизов.
+PinkHouse бесплатна для любого использования — дома и на работе, но она не является открытым исходным кодом: у неё собственная лицензия, в отличие от моделей под лицензией MIT. Установщик попросит вас принять её условия. Ознакомьтесь с [лицензией](https://amada.devliam.com/ru/pinkhouse/license), [условиями использования](https://amada.devliam.com/ru/pinkhouse/terms), [политикой конфиденциальности](https://amada.devliam.com/ru/pinkhouse/privacy) и [юридическим уведомлением](https://amada.devliam.com/ru/pinkhouse/legal-notice). Кратко: телеметрии нет, ваши тексты остаются на вашем ПК, а приложение подключается к интернету только для скачивания моделей из этих релизов.
 
 ---
 

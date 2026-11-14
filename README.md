@@ -145,9 +145,9 @@ To install it, open **PowerShell** and paste:
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.2 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.2).
+The [script](install.ps1) downloads the newest `PinkHouse_Setup_<version>_x64.exe` from the [PinkHouse releases](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), checks its SHA-256 and opens the installer. No admin rights needed. You can also download the installer yourself from the [PinkHouse 1.0.3 release](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3).
 
-> Windows 10 or 11, 64-bit (tested on Windows 11). The installer holds no model: the first time, choose one in **MODELS** (Amada 4.0 INT4 is the light one, 188 MB). PinkHouse does not run on macOS or Linux yet.
+> Windows 10 or 11, 64-bit (tested on Windows 11). The installer holds no model: the first time, a setup wizard asks for your language, then downloads the Amada you pick (Amada 4.0 INT4 is the light one, 188 MB). PinkHouse does not run on macOS or Linux yet.
 
 PinkHouse is free for any use, at home or at work, but it is not open source: it has its own license, unlike the MIT-licensed models. The installer asks you to accept it. Read the [License](https://amada.devliam.com/pinkhouse/license), [Terms of use](https://amada.devliam.com/pinkhouse/terms), [Privacy policy](https://amada.devliam.com/pinkhouse/privacy) and [Legal notice](https://amada.devliam.com/pinkhouse/legal-notice). In short: no telemetry, your texts stay on your PC, and the app goes online only to download models from these releases.
 

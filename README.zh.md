@@ -135,9 +135,9 @@ Amada **并非**在所有方面都更好：Jev 的阅读准确率高出许多，
 
 <a name="pinkhouse"></a>
 
-## PinkHouse：作为 Windows 应用的 Amada
+## PinkHouse：Amada Windows 应用
 
-PinkHouse 无需 Python 即可在您的 PC 上运行 Amada：一个供您提问的窗口、一个供脚本使用的本地 API（`http://127.0.0.1:8787`，带有 API 密钥），以及一个模型管理器，可从这些版本下载 Amada 的各个版本，并使用 SHA-256 校验每个版本。
+PinkHouse 可在您的电脑上运行 Amada，无需 Python：提供一个供您提问的窗口、一个供您的脚本使用的本地 API（`http://127.0.0.1:8787`，带 API 密钥），以及一个模型管理器，可从这些发行版本下载 Amada 的各个版本，并使用 SHA-256 校验每个版本。
 
 要安装，请打开 **PowerShell** 并粘贴：
 
@@ -145,11 +145,11 @@ PinkHouse 无需 Python 即可在您的 PC 上运行 Amada：一个供您提问�
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-[脚本](install.ps1)会从 [PinkHouse 发布版本](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true)下载最新的 `PinkHouse_Setup_<version>_x64.exe`，校验其 SHA-256 并打开安装程序。无需管理员权限。您也可以从 [PinkHouse 1.0.2 发布版本](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.2)自行下载安装程序。
+[脚本](install.ps1)会从 [PinkHouse 发行版本](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true)下载最新的 `PinkHouse_Setup_<version>_x64.exe`，校验其 SHA-256 并打开安装程序。无需管理员权限。您也可以从 [PinkHouse 1.0.3 发行版本](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3)自行下载安装程序。
 
-> Windows 10 或 11，64 位（已在 Windows 11 上测试）。安装程序不包含模型：首次使用时，请在 **MODELS** 中选择一个（Amada 4.0 INT4 是轻量版，188 MB）。PinkHouse 目前尚不能在 macOS 或 Linux 上运行。
+> 适用于 Windows 10 或 11，64 位（已在 Windows 11 上测试）。安装程序不包含模型：首次启动时，设置向导会询问您的语言，然后下载您选择的 Amada（Amada 4.0 INT4 是轻量版本，188 MB）。PinkHouse 目前尚不支持 macOS 或 Linux。
 
-PinkHouse 可免费用于任何场景，无论是在家还是在工作中，但它不是开源软件：它有自己的许可证，与采用 MIT 许可证的模型不同。安装程序会要求您接受该许可证。请阅读[许可证](https://amada.devliam.com/zh/pinkhouse/license)、[使用条款](https://amada.devliam.com/zh/pinkhouse/terms)、[隐私政策](https://amada.devliam.com/zh/pinkhouse/privacy)和[法律声明](https://amada.devliam.com/zh/pinkhouse/legal-notice)。简而言之：没有遥测，您的文本会保留在您的 PC 上，应用仅会联网从这些发布版本下载模型。
+PinkHouse 可免费用于任何用途，无论在家中还是工作中，但它不是开源软件：它有自己的许可证，与采用 MIT 许可证的模型不同。安装程序会要求您接受该许可证。请阅读[许可证](https://amada.devliam.com/zh/pinkhouse/license)、[使用条款](https://amada.devliam.com/zh/pinkhouse/terms)、[隐私政策](https://amada.devliam.com/zh/pinkhouse/privacy)和[法律声明](https://amada.devliam.com/zh/pinkhouse/legal-notice)。简而言之：没有遥测，您的文本会保留在您的电脑上，应用仅会联网以从这些发行版本下载模型。
 
 ---
 

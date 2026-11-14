@@ -133,21 +133,21 @@ Amada **no** es mejor en todo: Jev es mucho más preciso en comprensión lectora
 
 <a name="pinkhouse"></a>
 
-## PinkHouse: Amada como aplicación para Windows
+## PinkHouse: Amada como aplicación de Windows
 
-PinkHouse ejecuta Amada en su PC sin Python: una ventana para hacer sus preguntas, una API local para sus scripts (`http://127.0.0.1:8787`, con claves de API) y un gestor de modelos que descarga las versiones de Amada de estas publicaciones y verifica cada una con SHA-256.
+PinkHouse ejecuta Amada en su PC sin Python: una ventana para hacer sus preguntas, una API local para sus scripts (`http://127.0.0.1:8787`, con claves de API) y un administrador de modelos que descarga las versiones de Amada de estas versiones y comprueba cada una con SHA-256.
 
-Para instalarla, abra **PowerShell** y pegue:
+Para instalarlo, abra **PowerShell** y pegue:
 
 ```powershell
 irm https://raw.githubusercontent.com/DevLiamDb/Amada/main/install.ps1 | iex
 ```
 
-El [script](install.ps1) descarga el archivo más reciente `PinkHouse_Setup_<version>_x64.exe` de las [publicaciones de PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), verifica su SHA-256 y abre el instalador. No se necesitan derechos de administrador. También puede descargar el instalador por su cuenta desde la [publicación de PinkHouse 1.0.2](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.2).
+El [script](install.ps1) descarga el `PinkHouse_Setup_<version>_x64.exe` más reciente de las [versiones de PinkHouse](https://github.com/DevLiamDb/Amada/releases?q=pinkhouse&expanded=true), comprueba su SHA-256 y abre el instalador. No se necesitan permisos de administrador. También puede descargar el instalador usted mismo desde la [versión 1.0.3 de PinkHouse](https://github.com/DevLiamDb/Amada/releases/tag/pinkhouse-v1.0.3).
 
-> Windows 10 u 11, 64 bits (probado en Windows 11). El instalador no incluye ningún modelo: la primera vez, elija uno en **MODELS** (Amada 4.0 INT4 es la versión ligera, 188 MB). PinkHouse aún no funciona en macOS ni Linux.
+> Windows 10 u 11, 64 bits (probado en Windows 11). El instalador no incluye ningún modelo: la primera vez, un asistente de configuración le pregunta su idioma y luego descarga la versión de Amada que elija (Amada 4.0 INT4 es la ligera, 188 MB). PinkHouse aún no funciona en macOS ni Linux.
 
-PinkHouse es gratis para cualquier uso, en casa o en el trabajo, pero no es de código abierto: tiene su propia licencia, a diferencia de los modelos con licencia MIT. El instalador le pide que la acepte. Lea la [Licencia](https://amada.devliam.com/es/pinkhouse/license), los [Términos de uso](https://amada.devliam.com/es/pinkhouse/terms), la [Política de privacidad](https://amada.devliam.com/es/pinkhouse/privacy) y el [Aviso legal](https://amada.devliam.com/es/pinkhouse/legal-notice). En resumen: no hay telemetría, sus textos permanecen en su PC y la aplicación solo se conecta a internet para descargar modelos de estas publicaciones.
+PinkHouse es gratis para cualquier uso, en casa o en el trabajo, pero no es de código abierto: tiene su propia licencia, a diferencia de los modelos con licencia MIT. El instalador le pide que la acepte. Lea la [Licencia](https://amada.devliam.com/es/pinkhouse/license), los [Términos de uso](https://amada.devliam.com/es/pinkhouse/terms), la [Política de privacidad](https://amada.devliam.com/es/pinkhouse/privacy) y el [Aviso legal](https://amada.devliam.com/es/pinkhouse/legal-notice). En resumen: no hay telemetría, sus textos permanecen en su PC y la aplicación solo se conecta a Internet para descargar modelos de estas versiones.
 
 ---
 
